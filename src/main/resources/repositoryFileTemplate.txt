@@ -1,0 +1,6 @@
+#parse("File Header.java")
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+import org.springframework.data.repository.CrudRepository;
+import edu.ceis.ssiserviceceis.domain.${NAME};
+public interface ${NAME}Repository extends CrudRepository<${NAME},Long>{
+}

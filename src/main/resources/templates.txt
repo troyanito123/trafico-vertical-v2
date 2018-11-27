@@ -1,0 +1,43 @@
+Template para interfaz Service, llámenla SSIService:
+
+/**
+ * @author: Edson A. Terceros T.
+ */
+
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+
+import edu.ceis.ssiserviceceis.domain.${NAME};
+
+public interface ${NAME}Service extends GenericService<${NAME}> {
+}
+
+
+Propuesta de file template para la implementación de servicios, llámenla SSIServiceImpl:
+
+ /**
+ * @author: Edson A. Terceros T.
+ */
+
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+
+import edu.ceis.ssiserviceceis.domain.${NAME};
+import edu.ceis.ssiserviceceis.repositories.${NAME}Repository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ${NAME}ServiceImpl extends GenericServiceImpl<${NAME}> implements ${NAME}Service {
+
+    private ${NAME}Repository repository;
+
+    public ${NAME}ServiceImpl(${NAME}Repository repository) {
+        this.repository = repository;
+    }
+
+    @Override
+    protected CrudRepository<${NAME}, Long> getRepository() {
+        return repository;
+    }
+}
